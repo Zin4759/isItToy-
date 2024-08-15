@@ -43,8 +43,8 @@ class BattleField
 
   def attack_each_other(person1, person2)
     # using it "only" two object
-    @participents[String(person1)][0] = @participents[String(person1)][0] - @participents[String(person2)][1]
-    @participents[String(person2)][0] = @participents[String(person2)][0] - @participents[String(person1)][1]
+    @participents[person1][0] = @participents[person1][0] - @participents[person2][1]
+    @participents[person2][0] = @participents[person2][0] - @participents[person1][1]
     puts "#{person1} and #{person2} attack each other on same time!\n"
     puts "Now here, #{person1}'s hp is #{@participents[person1][0]}!"
     puts "And then, #{person2}'s hp is #{@participents[person2][0]}!"
