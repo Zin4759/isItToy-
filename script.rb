@@ -3,8 +3,8 @@ require_relative 'versus.rb'
 # This is main program
 
 bf = BattleField.new
-aai = Character.new("Aai", 55, 48)
-serina = Character.new("Serina", 60, 54)
+aai = Character.new("Aai", 55, 48, 0)
+serina = Character.new("Serina", 60, 54, 0)
 bf.join_to_battle(aai)
 bf.join_to_battle(serina)
 puts bf.to_s
