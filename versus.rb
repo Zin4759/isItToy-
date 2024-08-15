@@ -1,10 +1,10 @@
 class Character
-  attr_accessor :name, :hit_point, :attack_point, :defence_point
-  def initialize(name, hit_point, attack_point, defence_point)
+  attr_accessor :name, :hit_point, :attack_point, :defense_point
+  def initialize(name, hit_point, attack_point, defense_point)
     @name = name
     @hit_point = hit_point
     @attack_point = attack_point
-    @defence_point = defence_point
+    @defense_point = defense_point
   end
 end
 
@@ -50,5 +50,8 @@ class BattleField
     puts "Now here, #{person1}'s hp is #{@participants[person1][0]}!"
     puts "And then, #{person2}'s hp is #{@participants[person2][0]}!"
     judge_to_retire
+  end
+
+  def defense_to_attack(defender, attacker)
   end
 end
