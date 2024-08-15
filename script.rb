@@ -1,5 +1,7 @@
 require_relative 'versus.rb'
 
+# This is main program
+
 bf = BattleField.new
 aai = Character.new("Aai", 55, 48)
 serina = Character.new("Serina", 60, 54)
