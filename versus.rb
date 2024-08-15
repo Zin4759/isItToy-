@@ -8,24 +8,24 @@ class Character
 end
 
 class BattleField
-  attr_accessor :participents
+  attr_accessor :participants
   def initialize
-    @participents = {}
+    @participants = {}
   end
 
   def join_to_battle(user)
-    @participents[user.name] = [user.hit_point, user.attack_point]
+    @participants[user.name] = [user.hit_point, user.attack_point]
   end
   
   def to_s
-    @participents.map do |name, stats|
+    @participants.map do |name, stats|
       "#{name}: HP #{stats[0]}, AP #{stats[1]}"
     end.join("\n")
   end
 
   def judge_to_retire
     retired = false
-    @participents.each do |name, stats|
+    @participants.each do |name, stats|
       if stats[0] <= 0
         retired = true
         print "#{name} is retire!\n"
@@ -35,19 +35,19 @@ class BattleField
   end
 
   def attack_to_other_person(attacker, target)
-    @participents[String(target)][0] = @participents[String(target)][0] - @participents[String(attacker)][1]
+    @participants[String(target)][0] = @participants[String(target)][0] - @participants[String(attacker)][1]
     puts "#{attacker} attack to #{target}!\n"
-    puts "Now, #{target}'s hp is #{@participents[target][0]}!"
+    puts "Now, #{target}'s hp is #{@participants[target][0]}!"
     judge_to_retire
   end
 
   def attack_each_other(person1, person2)
     # using it "only" two object
-    @participents[person1][0] = @participents[person1][0] - @participents[person2][1]
-    @participents[person2][0] = @participents[person2][0] - @participents[person1][1]
+    @participants[person1][0] = @participants[person1][0] - @participants[person2][1]
+    @participants[person2][0] = @participants[person2][0] - @participants[person1][1]
     puts "#{person1} and #{person2} attack each other on same time!\n"
-    puts "Now here, #{person1}'s hp is #{@participents[person1][0]}!"
-    puts "And then, #{person2}'s hp is #{@participents[person2][0]}!"
+    puts "Now here, #{person1}'s hp is #{@participants[person1][0]}!"
+    puts "And then, #{person2}'s hp is #{@participants[person2][0]}!"
     judge_to_retire
   end
 end
