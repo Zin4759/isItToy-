@@ -5,10 +5,6 @@ class Character
     @hit_point = hit_point
     @attack_point = attack_point
   end
-
-  def hit_point
-    return @hit_point
-  end
 end
 
 class BattleField
@@ -30,9 +26,10 @@ class BattleField
   def judge_to_retire
     retired = false
     @participents.each do |name, stats|
-      if stats[0] < 0
+      if stats[0] <= 0
         retired = true
         print "#{name} is retire!\n"
+        @participants.delete(name)
       end
     end
   end
